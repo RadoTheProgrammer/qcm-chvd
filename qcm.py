@@ -1,18 +1,22 @@
-FILE="/Users/alain/Documents/Repertoire_Rado/data_qcm2.txt"
+FILE="data_vd.txt"
 
 
 
 
 
-if "|" in FILE:
-    raise OSError("Le caractère | n'est pas possible dans le nom de fichier.")
-elif "\"" in FILE:
-    raise OSError("Le caractère \" n'est pas possible dans le nom de fichier.")
 import random
 from time import sleep
 from sys import stderr
 letters=["a","b","c","d"]
 commands=["getline","save","stop"]
+
+class Questionnaire:
+    def __init__(self,file_data,file_progression):
+        self.file_data = file_data
+        self.file_progression = file_progression
+        
+    def go(self):
+        
 def Random(iterable):
     if isinstance(iterable,int):
         iterable=range(iterable)
@@ -58,7 +62,8 @@ def continuer(data):
     rList=list(map(int,data[2].split(",")))
     setmultrandom=False
     if rList==[-1]:
-        RandomList=Random(nombre_questions)
+        RandomList=list(range(nombre_questions))
+        random.shuffle(RandomList)
     else:
         RandomList=rList
     data3=list(map(int,data[3].split(",")))
