@@ -41,6 +41,10 @@ def convert_to_scratch(file=FILE):
         sdata+=lignes[idx+4].strip()+";;"
         idx+=6
     print(sdata+";"+"\n"*50)
+# class Questionnaire:
+#     def __init__(self,file,file_progression):
+#         self.file=file
+#         self.file_progression=file_progression
 def continuer(data):
     data=data.split("|")
     file=data[0]
